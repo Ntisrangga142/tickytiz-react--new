@@ -22,9 +22,9 @@ function Routing() {
         <Route path="/login" element={<Login />} />
         <Route path="/order/:id" element={<Order />} />
         <Route path="/ticket" element={<Ticket />} />
-        {/* <Route path="/payment" element={<Payment />} />
+        <Route path="/payment" element={<Payment />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/admin" element={<Admin />} /> */}
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </BrowserRouter>
   );
