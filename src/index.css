@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+body {
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.heroImage {
+    display: grid;
+    grid-row: 1fr 1fr;
+    grid-column: 1fr 1fr 1fr;
+
+    grid-template: 
+    'top-left top-right'
+    'bot-left top-right'
+    'bot-left bot-right'
+    ;
+    gap: 10px;
+}
