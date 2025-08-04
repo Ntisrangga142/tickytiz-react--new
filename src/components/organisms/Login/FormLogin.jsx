@@ -1,9 +1,13 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router';
 
 import Input    from '../../molecules/Login/Input.jsx'
 import ButtonSR from '../../atoms/Button-SignIn-SignUp/ButtonSR.jsx'
 
 function FormLogin({className}) {
+
+    const navigate = useNavigate();
+
     const emailRegex = /^.+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const passRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s]).{8,}$/;
 
@@ -40,7 +44,8 @@ function FormLogin({className}) {
         const data = getLocal();
 
         if (data.email ===  email && data.pass === pass && data != null) {
-            setValidUser('User Found');
+            setValidUser('')
+            navigate('/profile');
         } else {
             setValidUser('User Not Found !!');
         }
