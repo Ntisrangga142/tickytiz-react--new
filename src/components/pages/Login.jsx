@@ -15,7 +15,7 @@ function Login() {
   "bg-[#FFFFFF] w-[546px] h-[825px] rounded-[0.5rem] mt-[21px] mb-[63px] p-[74px] flex flex-col items-start";
 
   const styleBody = {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(src/assets/imgs/log-in/background-login.png)`
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/assets/imgs/log-in/background-login.png)`
   }
   
   
