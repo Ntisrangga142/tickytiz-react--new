@@ -19,7 +19,6 @@ function Register() {
   const [emailError, setEmailError] = useState("");
   const [passError, setPassError] = useState("");
   const [termError, setTermError] = useState("");
-  const [registerStatus, setRegisterStatus] = useState("");
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -34,7 +33,6 @@ function Register() {
 
     let isValid = true;
 
-    // Validasi Email
     if (!emailRegex.test(formData.email)) {
       setEmailError("Email format not valid!");
       isValid = false;
@@ -42,7 +40,6 @@ function Register() {
       setEmailError("");
     }
 
-    // Validasi Password
     if (!passRegex.test(formData.pass)) {
       setPassError(
         "Password must contain upper, lower, special char & min 8 chars!"
@@ -52,7 +49,6 @@ function Register() {
       setPassError("");
     }
 
-    // Validasi Terms
     if (!formData.termCheck) {
       setTermError("You must agree to terms & conditions!");
       isValid = false;
@@ -62,30 +58,17 @@ function Register() {
 
     if (!isValid) return;
 
-    // Ambil data user yang ada di localStorage
-    const existingUsers = JSON.parse(localStorage.getItem("User")) || [];
-
-    // Simpan user baru
     const newUser = {
       email: formData.email,
       pass: formData.pass,
     };
-    existingUsers.push(newUser);
-    localStorage.setItem("User", JSON.stringify(existingUsers));
 
-    // Pesan sukses
-    setRegisterStatus("Register success! You can login now.");
-
-    // Reset form
-    setFormData({
-      email: "",
-      pass: "",
-      termCheck: false,
-    });
+    localStorage.setItem("User", JSON.stringify(newUser));
+    
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-[url('../assets/imgs/log-in/background-login.png')] bg-no-repeat bg-cover bg-fixed bg-black/50 bg-blend-overlay font-[Mulish] text-center">
+    <div className="min-h-screen flex flex-col items-center bg-[url('/assets/imgs/log-in/background-login.png')] bg-no-repeat bg-cover bg-fixed bg-black/50 bg-blend-overlay font-[Mulish] text-center">
       <img
         src="../assets/imgs/logo/logo.png"
         alt="logo"
@@ -194,9 +177,6 @@ function Register() {
             >
               Join For Free Now
             </button>
-            {registerStatus && (
-              <h1 className="text-green-600 mt-4">{registerStatus}</h1>
-            )}
           </form>
         </div>
 
